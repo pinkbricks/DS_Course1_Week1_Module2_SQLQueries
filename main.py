@@ -168,7 +168,7 @@ query = """
 SELECT
     name, age, hungry
 FROM dogs
-WHERE age >2 and age <7
+WHERE age >=2 and age <=7
 ORDER BY name ASC
 """
 df_hungry_ages = pd.read_sql(query, conn2)
