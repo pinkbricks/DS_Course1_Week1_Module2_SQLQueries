@@ -153,6 +153,7 @@ SELECT
     name, age, breed
 FROM dogs
 WHERE hungry = True
+ORDER BY age ASC
 """
 df_hungry = pd.read_sql(query, conn2)
 
