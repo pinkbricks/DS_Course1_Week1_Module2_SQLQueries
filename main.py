@@ -181,11 +181,12 @@ df_hungry_ages
 # %%
 # CodeGrade step8
 # Replace None with your code
-query = """ 
-SELECT name, age, breed
+query = """
+SELECT
+    name, age, breed
 FROM dogs
-WHERE age >= (SELECT age FROM dogs ORDER BY age DESC LIMIT 1 OFFSET 3)
-ORDER BY breed;
+ORDER BY age DESC, breed ASC
+LIMIT 4
 """
 df_4_oldest = pd.read_sql(query, conn2)
 df_4_oldest
