@@ -148,14 +148,14 @@ pd.read_sql("SELECT * FROM dogs;", conn2)
 # %%
 # CodeGrade step6
 # Replace None with your code
-query = """
-SELECT
-    name, age, breed
-FROM dogs
-WHERE hungry = True
-ORDER BY age ASC
-"""
+query = """ 
+  SELECT name,age, breed
+  FROM  dogs
+  WHERE  hungry =1
+  ORDER BY age                    
+  """
 df_hungry = pd.read_sql(query, conn2)
+df_hungry
 
 # %% [markdown]
 # ### Step 7
@@ -164,14 +164,14 @@ df_hungry = pd.read_sql(query, conn2)
 # %%
 # CodeGrade step7
 # Replace None with your code
-query = """
-SELECT
-    name, age, hungry
+query = """ 
+SELECT name, age, hungry
 FROM dogs
-WHERE age >=2 and age <=7
-ORDER BY name ASC
+WHERE hungry = TRUE AND age BETWEEN 2 AND 7
+ORDER BY name;
 """
 df_hungry_ages = pd.read_sql(query, conn2)
+df_hungry_ages
 
 # %% [markdown]
 # ### Step 8
@@ -181,14 +181,14 @@ df_hungry_ages = pd.read_sql(query, conn2)
 # %%
 # CodeGrade step8
 # Replace None with your code
-query = """
-SELECT
-    name, age, breed
+query = """ 
+SELECT name, age, breed
 FROM dogs
-ORDER BY age DESC, name ASC
-LIMIT 4
+WHERE age >= (SELECT age FROM dogs ORDER BY age DESC LIMIT 1 OFFSET 3)
+ORDER BY breed;
 """
 df_4_oldest = pd.read_sql(query, conn2)
+df_4_oldest
 
 # %% [markdown]
 # ## Part 4: Aggregation
